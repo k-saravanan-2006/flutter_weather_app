@@ -1,5 +1,6 @@
 import 'dart:ui';
-
+import 'hourly_forecast_item.dart';
+import 'additional_info_item.dart';
 import 'package:flutter/material.dart';
 
 class WeatherScreen extends StatelessWidget {
@@ -64,13 +65,53 @@ class WeatherScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold
               ),
             ),
+            const SizedBox(height: 14),
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  HourlyForecastItem(time: '00:00',icon: Icons.cloud,temperature: '320.00',),
+                  HourlyForecastItem(time: '03:00',icon: Icons.thunderstorm,temperature: '270.23',),
+                  HourlyForecastItem(time: '06:00',icon: Icons.sunny_snowing,temperature: '301.10',),
+                  HourlyForecastItem(time: '09:00',icon: Icons.sunny,temperature: '320.00',),
+                  HourlyForecastItem(time: '12:00',icon: Icons.water_sharp,temperature: '320.00',),
+                  HourlyForecastItem(time: '15:00',icon: Icons.cloud,temperature: '320.00',),
+                ],
+              ),
+            ),
             const SizedBox(height: 20),
-            const Placeholder(fallbackHeight: 150),
-            const SizedBox(height: 20),
-            const Placeholder(fallbackHeight: 150),
+            const Text(
+              'Additional Information',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                AdditionalInfoItem(
+                  icon: Icons.water_drop_outlined,
+                  label: 'Humidity',
+                  value: '91'
+                ),
+                AdditionalInfoItem(
+                   icon: Icons.air,
+                  label: 'Wind speed',
+                  value: '7.67'
+                ),
+                AdditionalInfoItem(
+                   icon: Icons.beach_access,
+                  label: 'Pressure',
+                  value: '1006'
+                ),
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
+
