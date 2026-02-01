@@ -14,6 +14,7 @@ class HourlyForecastItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+                  color: const Color.fromARGB(255, 57, 58, 59),
                   elevation: 6,
                   child: Container(
                     width: 100,
